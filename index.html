@@ -7,11 +7,13 @@
     <title>Rishi Shankar | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet">
     <style>
         /* CSS Variables for easier theming */
         :root {
             /* Light Mode Colors (these would be overridden by dark mode) */
-            /* These are effectively unused now that dark mode is default and toggle is removed */
             --primary-bg: #f4f4f4;
             --primary-text: #333;
             --header-bg-start: #003366;
@@ -35,35 +37,51 @@
             --footer-bg: #003366;
             --footer-text: #fff;
             --whatsapp-green: #25d366;
+
+            /* Typography */
+            --font-body: 'Open Sans', sans-serif;
+            --font-heading: 'Poppins', sans-serif;
         }
 
         /* Dark Mode Overrides (These are the active colors now by default) */
         body {
             /* Apply dark mode styles directly to body as default */
-            --primary-bg: #121212;
-            --primary-text: #eee;
-            --header-bg-start: #001f3f;
-            --header-bg-end: #002d5c;
-            --nav-bg: #001f3f;
-            --nav-link: #ccc;
-            --nav-link-hover: #002d5c;
-            --accent-yellow: #ffee00;
-            --accent-blue: #66a3ff;
-            --heading-color: #66a3ff;
-            --card-bg: #1e1e1e;
-            --card-shadow: rgba(0, 0, 0, 0.3);
-            --skill-item-hover-bg: #2a2a2a;
-            --skill-item-hover-text: #ffee00;
-            --skill-item-hover-border: #ffee00;
-            --link-color: #66a3ff;
+            --primary-bg: #1a1a2e;
+            /* Deeper, richer dark background */
+            --primary-text: #e0e0e0;
+            --header-bg-start: #0f3460;
+            /* Darker blue */
+            --header-bg-end: #16213e;
+            /* Even darker blue */
+            --nav-bg: #0f3460;
+            --nav-link: #a7d9ff;
+            /* Lighter, more vibrant blue for links */
+            --nav-link-hover: #16213e;
+            --accent-yellow: #ffeb3b;
+            /* Slightly softer yellow */
+            --accent-blue: #a7d9ff;
+            /* Consistent accent blue */
+            --heading-color: #a7d9ff;
+            --card-bg: #282a36;
+            /* Darker gray for cards */
+            --card-shadow: rgba(0, 0, 0, 0.5);
+            /* Stronger shadow */
+            --skill-item-hover-bg: #3f51b5;
+            /* A subtle indigo on hover */
+            --skill-item-hover-text: #fff;
+            /* White text on hover */
+            --skill-item-hover-border: #ffeb3b;
+            /* Yellow border on hover */
+            --link-color: #a7d9ff;
             --form-border: #555;
-            --form-focus-border: #66a3ff;
-            --button-bg: #ffee00;
-            --button-text: #121212;
-            --footer-bg: #001f3f;
-            --footer-text: #ccc;
-            --whatsapp-green: #1e8743;
-            /* Slightly darker green for dark mode */
+            --form-focus-border: #a7d9ff;
+            --button-bg: #ffeb3b;
+            --button-text: #1a1a2e;
+            /* Dark text on yellow button */
+            --footer-bg: #0f3460;
+            --footer-text: #e0e0e0;
+            --whatsapp-green: #2ecc71;
+            /* A vibrant green for dark mode */
         }
 
         html {
@@ -77,124 +95,320 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: var(--font-body);
+            line-height: 1.7;
+            /* Slightly more line height for readability */
             color: var(--primary-text);
             background-color: var(--primary-bg);
             transition: background 0.3s, color 0.3s;
         }
 
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
+
         header {
             background: linear-gradient(to right, var(--header-bg-start), var(--header-bg-end));
             color: var(--nav-link);
-            padding: 30px 20px;
-            /* Reduced padding here */
+            padding: 2.5rem 1rem;
+            /* Use rem for scalability */
             text-align: center;
             position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .profile-img {
-            width: 100px;
-            /* Slightly smaller profile image */
-            height: 100px;
+            width: 120px;
+            /* Slightly larger image for impact */
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--accent-yellow);
-            margin-top: 5px;
-            /* Adjust margin after reducing header padding */
+            border: 5px solid var(--accent-yellow);
+            /* Thicker border */
+            margin-bottom: 1rem;
+            /* More space below image */
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            /* Larger heading */
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--nav-link);
+            /* Ensure tagline is visible against header background */
         }
 
         .resume-btn {
-            margin-top: 10px;
-            /* Adjust margin after reducing header padding */
+            margin-top: 1.5rem;
         }
 
         .resume-btn a {
             background: var(--accent-yellow);
-            color: #000;
-            /* Stays dark on yellow */
-            padding: 8px 15px;
+            color: var(--button-text);
+            /* Ensure button text is dark on yellow */
+            padding: 0.75rem 1.5rem;
+            /* More generous padding */
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
+            /* Slightly more rounded */
             font-weight: bold;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
         }
 
         .resume-btn a:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            background-color: #e0d100;
+            /* Darker yellow on hover */
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background-color: var(--nav-bg);
+            padding: 0.8rem 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            /* Make it sticky */
+            top: 0;
+            z-index: 1000;
+            /* Ensure it stays on top */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         nav ul {
             display: flex;
-            justify-content: center;
             list-style: none;
-            background-color: var(--nav-bg);
-            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
         }
 
         nav ul li {
-            margin: 10px;
+            margin: 0 1rem;
+            /* Spaced out links */
         }
 
         nav ul li a {
             color: var(--nav-link);
             text-decoration: none;
-            padding: 8px 15px;
-            transition: background 0.3s;
+            padding: 0.6rem 1rem;
+            transition: background 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            /* For underline effect */
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent-yellow);
+            /* Yellow underline */
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
         }
 
         nav ul li a:hover {
-            background-color: var(--nav-link-hover);
-            border-radius: 4px;
+            color: var(--accent-yellow);
+            /* Yellow text on hover */
         }
 
+        .hamburger {
+            display: none;
+            /* Hidden by default on desktop */
+            font-size: 1.8rem;
+            color: var(--nav-link);
+            cursor: pointer;
+            z-index: 1001;
+            /* Above nav links when open */
+        }
+
+        /* Mobile Nav Menu Styling */
+        nav.active .nav-links {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            /* Position below the nav bar */
+            left: 0;
+            width: 100%;
+            background-color: var(--nav-bg);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 1rem 0;
+            max-height: 0; /* Keep it initially hidden */
+            overflow: hidden; /* Ensure content is hidden */
+            transition: max-height 0.4s ease-out, opacity 0.4s ease-out; /* Add opacity transition */
+            opacity: 0; /* Start opaque for transition */
+        }
+
+        nav.active .nav-links.show-menu {
+            max-height: 300px;
+            /* Adjust as needed to fit all links */
+            opacity: 1; /* Fade in */
+        }
+
+        nav.active .nav-links li {
+            margin: 0.5rem 0;
+            text-align: center;
+        }
+
+
         section {
-            padding: 40px 20px;
-            max-width: 1000px;
+            padding: 4rem 1.5rem;
+            /* More consistent padding */
+            max-width: 1100px;
+            /* Slightly wider content area */
             margin: auto;
         }
 
         h2 {
-            margin-bottom: 20px;
+            margin-bottom: 2.5rem;
+            /* More space below headings */
             color: var(--heading-color);
+            font-size: 2.5rem;
+            /* Larger section headings */
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
         }
 
-        #about p+p {
-            margin-top: 1em;
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-yellow);
+            border-radius: 2px;
         }
+
+
+        #about p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            /* Consistent spacing between paragraphs */
+            text-align: justify;
+        }
+
+        /* Experience Section Styling - Reuses project-card for consistency */
+        .experience-item {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.8rem;
+            box-shadow: 0 6px 12px var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 2rem;
+            /* Space between experience items */
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .experience-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+            border-color: var(--accent-yellow);
+        }
+
+        .experience-item h3 {
+            color: var(--heading-color);
+            font-size: 1.6em;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .role-company {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin-bottom: 0.3rem;
+        }
+
+        .experience-item .duration-location {
+            font-size: 0.95em;
+            color: #b0b0b0;
+            /* Lighter grey for duration/location */
+            margin-bottom: 1rem;
+        }
+
+        .experience-item ul {
+            list-style: disc;
+            /* Use disc for bullet points */
+            margin-left: 1.5rem;
+            font-size: 1em;
+            color: var(--primary-text);
+        }
+
+        .experience-item ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* End Experience Section Styling */
+
 
         ul {
-            padding-left: 20px;
+            list-style: none;
+            /* Remove default list style */
+            padding-left: 0;
         }
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 2.5rem 1rem;
             background-color: var(--footer-bg);
             color: var(--footer-text);
+            font-size: 0.9rem;
         }
 
         a {
             color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-yellow);
+            /* Consistent hover color */
         }
 
         /* Floating Buttons */
         .floating-btn,
         .scroll-top {
             position: fixed;
-            bottom: 20px;
+            bottom: 2rem;
+            /* Use rem */
             border-radius: 50%;
-            font-size: 20px;
-            padding: 15px;
+            font-size: 1.4rem;
+            /* Adjusted font size */
+            padding: 0.9rem;
+            /* Adjusted padding */
             color: white;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            /* Stronger shadow */
+            z-index: 999;
         }
 
         .floating-btn {
-            right: 20px;
+            right: 2rem;
             background: var(--whatsapp-green);
         }
 
@@ -204,14 +418,18 @@
 
         .floating-btn:hover,
         .scroll-top:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transform: translateY(-5px) scale(1.08);
+            /* More pronounced hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
         }
 
         .scroll-top {
-            right: 80px;
+            right: 6.5rem;
+            /* Adjusted position */
             background: var(--accent-blue);
-            display: none;
+            opacity: 0; /* Start hidden */
+            pointer-events: none; /* Make it unclickable when hidden */
+            transition: opacity 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Add opacity to transition */
         }
 
         .scroll-top i {
@@ -219,15 +437,16 @@
         }
 
         .scroll-top.show {
-            display: block;
+            opacity: 1; /* Fully visible */
+            pointer-events: all; /* Make it clickable when shown */
         }
 
         /* Typed.js cursor styling */
         .typed-cursor {
             opacity: 1;
             animation: typedjsBlink 0.7s infinite;
-            color: var(--nav-link);
-            /* Default for header */
+            color: var(--accent-yellow);
+            /* Make cursor more prominent */
         }
 
         @keyframes typedjsBlink {
@@ -247,72 +466,80 @@
         /* Project Cards Styling */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            padding-top: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* Larger min width */
+            gap: 1.5rem;
+            /* More gap */
+            padding-top: 1.5rem;
         }
 
         .project-card {
             background-color: var(--card-bg);
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 8px var(--card-shadow);
+            border-radius: 10px;
+            /* More rounded corners */
+            padding: 1.8rem;
+            /* More padding */
+            box-shadow: 0 6px 12px var(--card-shadow);
+            /* Stronger shadow */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            /* Subtle border */
         }
 
         .project-card h3 {
             color: var(--heading-color);
-            margin-bottom: 10px;
-            font-size: 1.4em;
+            margin-bottom: 0.8rem;
+            font-size: 1.5em;
+            /* Slightly larger project title */
         }
 
         .project-card .project-description {
-            font-size: 0.95em;
-            margin-bottom: 15px;
+            font-size: 1em;
+            margin-bottom: 1.2rem;
             flex-grow: 1;
             color: var(--primary-text);
         }
 
         .project-card .project-link {
-            display: inline-block;
+            display: inline-flex;
+            /* Use flex for icon alignment */
+            align-items: center;
+            justify-content: center;
             background-color: var(--button-bg);
             color: var(--button-text) !important;
-            padding: 8px 15px;
+            padding: 0.8rem 1.2rem;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 6px;
             font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            text-align: center;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: auto;
+            /* Push to bottom of card */
         }
 
         .project-card .project-link i {
-            margin-left: 5px;
+            margin-left: 0.5rem;
+            /* Space between text and icon */
+            font-size: 1.1em;
         }
 
         .project-card .project-link:hover {
-            background-color: var(--nav-bg);
-            /* Darker shade of blue/yellow */
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        body .project-card .project-link:hover {
-            /* Ensure dark mode button hover also applies when default */
-            background-color: #d4c900;
+            background-color: #e0d100;
             /* Darker yellow */
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        body .project-card:hover {
-            /* Ensure dark mode card hover also applies when default */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            transform: translateY(-8px);
+            /* More pronounced lift */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+            /* Stronger shadow */
+            border-color: var(--accent-yellow);
+            /* Highlight border on hover */
         }
 
         /* Skills Section Hover Effects */
@@ -320,71 +547,65 @@
             list-style: none;
             padding-left: 0;
             display: grid;
-            /* Make it a grid for potentially multi-column layout */
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            /* Responsive columns */
-            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            /* Slightly larger min width */
+            gap: 1rem;
+            /* Consistent gap */
         }
 
         #skills ul li {
-            padding: 10px 15px;
-            /* Increased padding */
-            border-radius: 4px;
-            transition: transform 0.2s ease-in-out, background-color 0.3s ease, color 0.3s ease, border-left 0.3s ease;
-            margin-bottom: 0;
-            /* Remove margin-bottom due to grid gap */
+            padding: 1.2rem 1.5rem;
+            /* More padding */
+            border-radius: 6px;
+            /* Consistent rounded corners */
+            transition: transform 0.2s ease-in-out, background-color 0.3s ease, color 0.3s ease, border-left 0.3s ease, box-shadow 0.3s ease;
             cursor: default;
-            border-left: 3px solid transparent;
-            /* Prepare for border change */
+            border-left: 4px solid transparent;
+            /* Thicker border */
             background-color: var(--card-bg);
-            /* Give skills a subtle background */
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            /* Subtle shadow */
-        }
-
-        body #skills ul li {
-            /* Ensure dark mode skill item styles apply when default */
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            /* Stronger initial shadow */
+            font-size: 1.05em;
+            /* Slightly larger text */
         }
 
         #skills ul li:hover {
-            transform: translateX(5px);
+            transform: translateX(8px);
+            /* More pronounced slide */
             background-color: var(--skill-item-hover-bg);
             color: var(--skill-item-hover-text);
-            border-left: 3px solid var(--skill-item-hover-border);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--skill-item-hover-border);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            /* Stronger hover shadow */
         }
-
-        body #skills ul li:hover {
-            /* Ensure dark mode skill item hover also applies when default */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-
 
         /* Contact Form Styling */
         #contact form {
             background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px var(--card-shadow);
-            margin-top: 20px;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px var(--card-shadow);
+            margin-top: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            /* Subtle border */
         }
 
         #contact label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
             color: var(--primary-text);
+            font-size: 1em;
         }
 
         #contact input[type="text"],
         #contact input[type="email"],
         #contact textarea {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
+            padding: 0.9rem;
+            margin-bottom: 1.2rem;
             border: 1px solid var(--form-border);
-            border-radius: 5px;
+            border-radius: 6px;
             background-color: var(--primary-bg);
             /* Use primary bg for inputs */
             color: var(--primary-text);
@@ -396,61 +617,59 @@
         #contact input[type="email"]:focus,
         #contact textarea:focus {
             border-color: var(--form-focus-border);
-            box-shadow: 0 0 0 3px rgba(0, 80, 158, 0.2);
-            /* Light blue shadow */
-            outline: none;
-        }
-
-        body #contact input[type="text"]:focus,
-        /* Ensure dark mode form focus applies */
-        body #contact input[type="email"]:focus,
-        body #contact textarea:focus {
-            box-shadow: 0 0 0 3px rgba(102, 163, 255, 0.3);
+            box-shadow: 0 0 0 3px rgba(167, 217, 255, 0.3);
             /* Lighter blue shadow for dark mode */
+            outline: none;
         }
 
         #contact button[type="submit"] {
             background-color: var(--button-bg);
             color: var(--button-text);
             border: none;
-            padding: 12px 25px;
+            padding: 0.8rem 2rem;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 6px;
             font-weight: bold;
-            font-size: 1em;
+            font-size: 1.1em;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            display: block;
+            /* Make button full width on small screens */
+            width: 100%;
+            max-width: 250px;
+            /* Limit width on larger screens */
+            margin: 0 auto;
+            /* Center the button */
         }
 
         #contact button[type="submit"]:hover {
-            background-color: var(--nav-bg);
-            /* Darker blue */
-            transform: translateY(-1px);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        body #contact button[type="submit"]:hover {
-            /* Ensure dark mode button hover applies */
-            background-color: #d4c900;
+            background-color: #e0d100;
             /* Darker yellow */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         /* Toast Notification */
         .toast-notification {
             visibility: hidden;
-            min-width: 250px;
+            min-width: 280px;
+            /* Wider toast */
             background-color: #333;
             color: #fff;
             text-align: center;
-            border-radius: 5px;
-            padding: 16px;
+            border-radius: 8px;
+            /* More rounded */
+            padding: 18px;
+            /* More padding */
             position: fixed;
-            z-index: 100;
+            z-index: 10000;
+            /* Higher z-index */
             left: 50%;
             transform: translateX(-50%);
             bottom: 30px;
-            font-size: 17px;
+            font-size: 1em;
             opacity: 0;
-            transition: opacity 0.5s, visibility 0.5s;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .toast-notification.show {
@@ -458,25 +677,183 @@
             opacity: 1;
         }
 
+        /* --- Certificates Section Styling --- */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            /* Slightly wider min width */
+            gap: 2rem;
+            /* Increased gap for better spacing */
+            padding-top: 2rem;
+        }
+
+        .certificate-item {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            /* More rounded corners */
+            padding: 1.5rem;
+            box-shadow: 0 8px 16px var(--card-shadow);
+            /* More pronounced shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            /* Slightly stronger subtle border */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Center content horizontally */
+            justify-content: flex-start;
+            /* Align items to the top initially */
+        }
+
+        .certificate-item:hover {
+            transform: translateY(-10px);
+            /* More lift on hover */
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
+            /* Stronger hover shadow */
+            border-color: var(--accent-yellow);
+        }
+
+        .certificate-item a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 100%;
+            /* Make the entire card clickable */
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .certificate-item img {
+            max-width: 80%;
+            /* Slightly smaller image for more balanced layout */
+            height: auto;
+            border-radius: 10px;
+            /* More rounded image corners */
+            margin-bottom: 1rem;
+            object-fit: contain;
+            /* Ensure full image is visible without cropping */
+            border: 2px solid var(--form-border);
+            transition: border-color 0.3s ease;
+        }
+
+        .certificate-item:hover img {
+            border-color: var(--accent-yellow);
+        }
+
+        .certificate-item h3 {
+            color: var(--heading-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-item p {
+            font-size: 0.95rem;
+            color: #b0b0b0;
+            margin-bottom: 0;
+            /* Adjust spacing */
+        }
+
+        /* Responsive adjustments for certificates */
+        @media (max-width: 768px) {
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .certificate-item img {
+                max-width: 90%;
+            }
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
+            header {
+                padding: 2rem 1rem;
+            }
+
             header h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            /* Mobile Navigation */
+            nav {
+                justify-content: space-between;
+                /* Hamburger on one side, maybe logo on other */
             }
 
             nav ul {
-                flex-direction: column;
-                align-items: center;
+                display: none;
+                /* Hide desktop nav */
             }
 
-            .scroll-top {
-                right: 60px;
-                /* Adjust if floating button overlaps */
+            .hamburger {
+                display: block;
+                /* Show hamburger icon */
+            }
+
+            section {
+                padding: 3rem 1rem;
+                /* Adjust section padding */
+            }
+
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                /* Single column on smaller screens */
             }
 
             #skills ul {
                 grid-template-columns: 1fr;
                 /* Single column on smaller screens */
+            }
+
+            .floating-btn {
+                font-size: 1.2rem;
+                padding: 0.8rem;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+
+            .scroll-top {
+                font-size: 1.2rem;
+                padding: 0.8rem;
+                bottom: 1.5rem;
+                right: 5rem;
+                /* Adjust if floating button overlaps */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .resume-btn a {
+                padding: 0.6rem 1.2rem;
+                font-size: 1em;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            #about p {
+                font-size: 0.95em;
             }
         }
     </style>
@@ -493,10 +870,15 @@
     </header>
 
     <nav>
-        <ul>
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="navLinks">
             <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#certificates">Certificates</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -519,14 +901,44 @@
         </p>
     </section>
 
-
+    <section id="experience" data-aos="fade-up">
+        <h2>Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-item" data-aos="fade-up" data-aos-delay="50">
+                <h3 class="role-company">DATA SCIENCE INTERN | Brain O Vision Solutions India Pvt Ltd.</h3>
+                <p class="duration-location">Hyderabad | Jan 2025 - Present</p>
+                <ul>
+                    <li>Developed a CNN-based image classification model to identify potato leaf diseases. Handled data
+                        preprocessing, augmentation, and model training to achieve high prediction accuracy.</li>
+                    <li>Tools: Python, FastAPI, TensorFlow, and Keras.</li>
+                </ul>
+            </div>
+            <div class="experience-item" data-aos="fade-up" data-aos-delay="150">
+                <h3 class="role-company">SUMMER INTERN | PreGrad</h3>
+                <p class="duration-location">Remote | Jun 2023 - Sept 2023</p>
+                <ul>
+                    <li>Learned core AI/ML concepts over a three-month program. Built a movie recommendation system using a
+                        5,000-entry dataset with content-based filtering and similarity measures.</li>
+                    <li>Tools: Python, Pandas, Numpy, Matplotlib, Scikit-learn.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
     <section id="skills" data-aos="fade-right">
         <h2>Skills</h2>
         <ul>
-            <li data-aos="fade-up" data-aos-delay="50">Languages: Python, C++, Java, HTML, CSS</li>
-            <li data-aos="fade-up" data-aos-delay="100">Tools: VS Code, GitHub, Google Colab</li>
-            <li data-aos="fade-up" data-aos-delay="150">Frameworks: TensorFlow, Scikit-learn, OpenCV</li>
-            <li data-aos="fade-up" data-aos-delay="200">Databases: MySQL, AWS</li>
+            <li data-aos="fade-up" data-aos-delay="50">Languages: C++, Python, C, Java, HTML, CSS</li>
+            <li data-aos="fade-up" data-aos-delay="100">Developer Tools: VS code, Anaconda, Kaggle, GitHub, IntelliJ, Google
+                Colaboratory, Git</li>
+            <li data-aos="fade-up" data-aos-delay="150">Frameworks: Speech Recognition, Scikit-Learn, Mlib, TensorFlow,
+                Pandas, Numpy, OpenCV</li>
+            <li data-aos="fade-up" data-aos-delay="200">Cloud/Databases: MySQL, Amazon Web Services</li>
+            <li data-aos="fade-up" data-aos-delay="250">Soft Skills: Communication, Leadership, Problem-Solving, Teamwork,
+                Time Management, Strategic Thinking</li>
+            <li data-aos="fade-up" data-aos-delay="300">Coursework: DSA, OOP, OS, DBMS, Computer Networks, MATLAB, Machine
+                Learning, Digital Signal and Processing, Digital Electronics, AI</li>
+            <li data-aos="fade-up" data-aos-delay="350">Areas of Interest: Machine Learning Algorithms, Artificial
+                Intelligence Data Science, Data Structures and Algorithms</li>
         </ul>
     </section>
 
@@ -544,8 +956,8 @@
                 <h3>AI Resume Analyzer</h3>
                 <p class="project-description">An NLP-based tool to parse resumes, extract key information, and help in
                     screening processes.</p>
-                <a href="https://github.com/rishishankar-03/AI_Resume_Analyzer.git" target="_blank"
-                    class="project-link">View on GitHub <i class="fab fa-github"></i></a>
+                <a href="https://github.com/rishishankar-03/AI_Resume_Analyzer.git" target="_blank" class="project-link">View on
+                    GitHub <i class="fab fa-github"></i></a>
             </div>
             <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                 <h3>JARVIS – Virtual Assistant</h3>
@@ -567,6 +979,46 @@
                     content-based techniques.</p>
                 <a href="https://github.com/rishishankar-03/Movie_Reccommendation_System.git" target="_blank"
                     class="project-link">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+    <section id="certificates" data-aos="fade-up">
+        <h2>Certificates</h2>
+        <div class="certificates-grid">
+            <div class="certificate-item" data-aos="fade-up" data-aos-delay="50">
+                <a href="images/1.jpeg" target="_blank" title="View Course Completion Certificate">
+                    <img src="images/1.jpeg" alt="Internship Completion Certificate" loading="lazy">
+                    <h3>Course Completion</h3>
+                    <p>Issued by PreGrad</p>
+                </a>
+            </div>
+            <div class="certificate-item" data-aos="fade-up" data-aos-delay="100">
+                <a href="images/2.jpeg" target="_blank" title="View Project Completion Certificate">
+                    <img src="images/2.jpeg" alt="Project Completion Certificate" loading="lazy">
+                    <h3>Project Completion</h3>
+                    <p>Issued by PreGrad</p>
+                </a>
+            </div>
+            <div class="certificate-item" data-aos="fade-up" data-aos-delay="150">
+                <a href="images/3.jpg" target="_blank" title="View NPTEL Python Certificate">
+                    <img src="images/3.jpg" alt="NPTEL Python Programming Certificate" loading="lazy">
+                    <h3>NPTEL: The Joy of Computing using Python</h3>
+                    <p>Issued by NPTEL</p>
+                </a>
+            </div>
+            <div class="certificate-item" data-aos="fade-up" data-aos-delay="200">
+                <a href="images/4.jpg" target="_blank" title="View NPTEL Cloud Computing Certificate">
+                    <img src="images/4.jpg" alt="NPTEL Cloud Computing Certificate" loading="lazy">
+                    <h3>NPTEL: Cloud Computing</h3>
+                    <p>Issued by NPTEL</p>
+                </a>
+            </div>
+            <div class="certificate-item" data-aos="fade-up" data-aos-delay="250">
+                <a href="images/5.jpg" target="_blank" title="View NPTEL IoT Certificate">
+                    <img src="images/5.jpg" alt="NPTEL Internet of Things (IoT) Certificate" loading="lazy">
+                    <h3>NPTEL: Internet of Things (IoT)</h3>
+                    <p>Issued by NPTEL</p>
+                </a>
             </div>
         </div>
     </section>
@@ -650,28 +1102,62 @@
             });
 
             if (response.ok) {
-                showToast('Message sent successfully!', 'success');
+                showToast('Message sent successfully!');
                 contactForm.reset(); // Clear the form
             } else {
-                showToast('Failed to send message. Please try again.', 'error');
+                showToast('Failed to send message. Please try again.');
             }
         });
 
-        function showToast(message, type) {
+        function showToast(message) {
             toastNotification.textContent = message;
-            toastNotification.className = 'toast-notification show'; // Reset class and add 'show'
-
-            // Optional: Add type-specific styling
-            if (type === 'success') {
-                toastNotification.style.backgroundColor = '#4CAF50'; // Green
-            } else if (type === 'error') {
-                toastNotification.style.backgroundColor = '#f44336'; // Red
-            }
-
+            toastNotification.classList.add('show');
             setTimeout(() => {
-                toastNotification.className = toastNotification.className.replace('show', '');
+                toastNotification.classList.remove('show');
             }, 3000); // Hide after 3 seconds
         }
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('nav .nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent default hash jump
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    // Close mobile menu if open
+                    const nav = document.querySelector('nav');
+                    const navLinks = document.getElementById('navLinks');
+                    if (nav.classList.contains('active')) {
+                        nav.classList.remove('active');
+                        navLinks.classList.remove('show-menu');
+                    }
+
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Hamburger Menu Toggle (Mobile Nav)
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const nav = document.querySelector('nav'); // Get the nav element itself
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active'); // Toggle 'active' class on the nav element
+            navLinks.classList.toggle('show-menu'); // Toggle 'show-menu' for animation
+        });
+
+        // Close mobile menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                navLinks.classList.remove('show-menu');
+            });
+        });
     </script>
 </body>
 
