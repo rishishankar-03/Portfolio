@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rishi Shankar | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <style>
+        /* CSS Variables for easier theming */
+        :root {
+            /* Light Mode Colors (these would be overridden by dark mode) */
+            /* These are effectively unused now that dark mode is default and toggle is removed */
+            --primary-bg: #f4f4f4;
+            --primary-text: #333;
+            --header-bg-start: #003366;
+            --header-bg-end: #00509e;
+            --nav-bg: #003366;
+            --nav-link: #fff;
+            --nav-link-hover: #00509e;
+            --accent-yellow: #ffee00;
+            --accent-blue: #00509e;
+            --heading-color: #00509e;
+            --card-bg: #fff;
+            --card-shadow: rgba(0, 0, 0, 0.1);
+            --skill-item-hover-bg: #e9eff5;
+            --skill-item-hover-text: #003366;
+            --skill-item-hover-border: #00509e;
+            --link-color: #00509e;
+            --form-border: #ccc;
+            --form-focus-border: #00509e;
+            --button-bg: #00509e;
+            --button-text: #fff;
+            --footer-bg: #003366;
+            --footer-text: #fff;
+            --whatsapp-green: #25d366;
+        }
+
+        /* Dark Mode Overrides (These are the active colors now by default) */
+        body {
+            /* Apply dark mode styles directly to body as default */
+            --primary-bg: #121212;
+            --primary-text: #eee;
+            --header-bg-start: #001f3f;
+            --header-bg-end: #002d5c;
+            --nav-bg: #001f3f;
+            --nav-link: #ccc;
+            --nav-link-hover: #002d5c;
+            --accent-yellow: #ffee00;
+            --accent-blue: #66a3ff;
+            --heading-color: #66a3ff;
+            --card-bg: #1e1e1e;
+            --card-shadow: rgba(0, 0, 0, 0.3);
+            --skill-item-hover-bg: #2a2a2a;
+            --skill-item-hover-text: #ffee00;
+            --skill-item-hover-border: #ffee00;
+            --link-color: #66a3ff;
+            --form-border: #555;
+            --form-focus-border: #66a3ff;
+            --button-bg: #ffee00;
+            --button-text: #121212;
+            --footer-bg: #001f3f;
+            --footer-text: #ccc;
+            --whatsapp-green: #1e8743;
+            /* Slightly darker green for dark mode */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--primary-text);
+            background-color: var(--primary-bg);
+            transition: background 0.3s, color 0.3s;
+        }
+
+        header {
+            background: linear-gradient(to right, var(--header-bg-start), var(--header-bg-end));
+            color: var(--nav-link);
+            padding: 30px 20px;
+            /* Reduced padding here */
+            text-align: center;
+            position: relative;
+        }
+
+        .profile-img {
+            width: 100px;
+            /* Slightly smaller profile image */
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-yellow);
+            margin-top: 5px;
+            /* Adjust margin after reducing header padding */
+        }
+
+        .resume-btn {
+            margin-top: 10px;
+            /* Adjust margin after reducing header padding */
+        }
+
+        .resume-btn a {
+            background: var(--accent-yellow);
+            color: #000;
+            /* Stays dark on yellow */
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .resume-btn a:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            background-color: var(--nav-bg);
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 10px;
+        }
+
+        nav ul li a {
+            color: var(--nav-link);
+            text-decoration: none;
+            padding: 8px 15px;
+            transition: background 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--nav-link-hover);
+            border-radius: 4px;
+        }
+
+        section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: var(--heading-color);
+        }
+
+        #about p+p {
+            margin-top: 1em;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+        }
+
+        a {
+            color: var(--link-color);
+        }
+
+        /* Floating Buttons */
+        .floating-btn,
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            border-radius: 50%;
+            font-size: 20px;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .floating-btn {
+            right: 20px;
+            background: var(--whatsapp-green);
+        }
+
+        .floating-btn i {
+            color: white;
+        }
+
+        .floating-btn:hover,
+        .scroll-top:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .scroll-top {
+            right: 80px;
+            background: var(--accent-blue);
+            display: none;
+        }
+
+        .scroll-top i {
+            color: white;
+        }
+
+        .scroll-top.show {
+            display: block;
+        }
+
+        /* Typed.js cursor styling */
+        .typed-cursor {
+            opacity: 1;
+            animation: typedjsBlink 0.7s infinite;
+            color: var(--nav-link);
+            /* Default for header */
+        }
+
+        @keyframes typedjsBlink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Project Cards Styling */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding-top: 10px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card h3 {
+            color: var(--heading-color);
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+
+        .project-card .project-description {
+            font-size: 0.95em;
+            margin-bottom: 15px;
+            flex-grow: 1;
+            color: var(--primary-text);
+        }
+
+        .project-card .project-link {
+            display: inline-block;
+            background-color: var(--button-bg);
+            color: var(--button-text) !important;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-align: center;
+        }
+
+        .project-card .project-link i {
+            margin-left: 5px;
+        }
+
+        .project-card .project-link:hover {
+            background-color: var(--nav-bg);
+            /* Darker shade of blue/yellow */
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        body .project-card .project-link:hover {
+            /* Ensure dark mode button hover also applies when default */
+            background-color: #d4c900;
+            /* Darker yellow */
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        body .project-card:hover {
+            /* Ensure dark mode card hover also applies when default */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Skills Section Hover Effects */
+        #skills ul {
+            list-style: none;
+            padding-left: 0;
+            display: grid;
+            /* Make it a grid for potentially multi-column layout */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            /* Responsive columns */
+            gap: 10px;
+        }
+
+        #skills ul li {
+            padding: 10px 15px;
+            /* Increased padding */
+            border-radius: 4px;
+            transition: transform 0.2s ease-in-out, background-color 0.3s ease, color 0.3s ease, border-left 0.3s ease;
+            margin-bottom: 0;
+            /* Remove margin-bottom due to grid gap */
+            cursor: default;
+            border-left: 3px solid transparent;
+            /* Prepare for border change */
+            background-color: var(--card-bg);
+            /* Give skills a subtle background */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            /* Subtle shadow */
+        }
+
+        body #skills ul li {
+            /* Ensure dark mode skill item styles apply when default */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        #skills ul li:hover {
+            transform: translateX(5px);
+            background-color: var(--skill-item-hover-bg);
+            color: var(--skill-item-hover-text);
+            border-left: 3px solid var(--skill-item-hover-border);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        body #skills ul li:hover {
+            /* Ensure dark mode skill item hover also applies when default */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+
+        /* Contact Form Styling */
+        #contact form {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px var(--card-shadow);
+            margin-top: 20px;
+        }
+
+        #contact label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--primary-text);
+        }
+
+        #contact input[type="text"],
+        #contact input[type="email"],
+        #contact textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid var(--form-border);
+            border-radius: 5px;
+            background-color: var(--primary-bg);
+            /* Use primary bg for inputs */
+            color: var(--primary-text);
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #contact input[type="text"]:focus,
+        #contact input[type="email"]:focus,
+        #contact textarea:focus {
+            border-color: var(--form-focus-border);
+            box-shadow: 0 0 0 3px rgba(0, 80, 158, 0.2);
+            /* Light blue shadow */
+            outline: none;
+        }
+
+        body #contact input[type="text"]:focus,
+        /* Ensure dark mode form focus applies */
+        body #contact input[type="email"]:focus,
+        body #contact textarea:focus {
+            box-shadow: 0 0 0 3px rgba(102, 163, 255, 0.3);
+            /* Lighter blue shadow for dark mode */
+        }
+
+        #contact button[type="submit"] {
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        #contact button[type="submit"]:hover {
+            background-color: var(--nav-bg);
+            /* Darker blue */
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        body #contact button[type="submit"]:hover {
+            /* Ensure dark mode button hover applies */
+            background-color: #d4c900;
+            /* Darker yellow */
+        }
+
+        /* Toast Notification */
+        .toast-notification {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 16px;
+            position: fixed;
+            z-index: 100;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 30px;
+            font-size: 17px;
+            opacity: 0;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .toast-notification.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .scroll-top {
+                right: 60px;
+                /* Adjust if floating button overlaps */
+            }
+
+            #skills ul {
+                grid-template-columns: 1fr;
+                /* Single column on smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="images/profile.jpg" alt="Profile Picture" class="profile-img" />
+        <h1>Rishi Shankar</h1>
+        <p><span id="typed-tagline"></span></p>
+        <div class="resume-btn">
+            <a href="resume.pdf" download>Download Resume</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about" data-aos="fade-up">
+        <h2>About Me</h2>
+        <p>
+            I am currently pursuing my Engineering degree in Electronics and Communication Engineering from NIT Patna.
+            Throughout my academic journey, I have developed a strong foundation in core ECE subjects such as digital
+            electronics, analog electronics, wireless communication, microwave engineering IoT and MATLAB. Alongside, I
+            have cultivated a deep passion for Artificial
+            Intelligence and have successfully completed numerous AI projects using frameworks and tools like
+            TensorFlow, Scikit-learn, and YOLO.
+        </p>
+        <p>
+            My skill set bridges traditional electronics and cutting-edge AI technologies, allowing me to approach
+            problems with a unique perspective. I am highly motivated to build a career in the AI domain and
+            continuously seek opportunities to expand my knowledge and contribute to innovative projects in this
+            exciting field.
+        </p>
+    </section>
+
+
+    <section id="skills" data-aos="fade-right">
+        <h2>Skills</h2>
+        <ul>
+            <li data-aos="fade-up" data-aos-delay="50">Languages: Python, C++, Java, HTML, CSS</li>
+            <li data-aos="fade-up" data-aos-delay="100">Tools: VS Code, GitHub, Google Colab</li>
+            <li data-aos="fade-up" data-aos-delay="150">Frameworks: TensorFlow, Scikit-learn, OpenCV</li>
+            <li data-aos="fade-up" data-aos-delay="200">Databases: MySQL, AWS</li>
+        </ul>
+    </section>
+
+    <section id="projects" data-aos="zoom-in">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-aos="fade-up">
+                <h3>Potato Disease Classification</h3>
+                <p class="project-description">A CNN model using TensorFlow to classify diseases in potato plant leaves
+                    from images.</p>
+                <a href="https://github.com/rishishankar-03/Potato_Disease_Classiffication_using_CNN_and_Tensorflow.git"
+                    target="_blank" class="project-link">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <h3>AI Resume Analyzer</h3>
+                <p class="project-description">An NLP-based tool to parse resumes, extract key information, and help in
+                    screening processes.</p>
+                <a href="https://github.com/rishishankar-03/AI_Resume_Analyzer.git" target="_blank"
+                    class="project-link">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                <h3>JARVIS – Virtual Assistant</h3>
+                <p class="project-description">A Python-based virtual desktop assistant capable of performing various
+                    automated tasks.</p>
+                <a href="https://github.com/rishishankar-03/JARVIS_Virtual_AI_Desktop_Assisstant.git" target="_blank"
+                    class="project-link">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                <h3>Breast Cancer Detection</h3>
+                <p class="project-description">Machine learning model to predict breast cancer occurrence based on
+                    diagnostic measurements.</p>
+                <a href="https://github.com/rishishankar-03/Breast_Cancer_Detection.git" target="_blank"
+                    class="project-link">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+            <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                <h3>Movie Recommendation System</h3>
+                <p class="project-description">A system suggesting movies to users based on collaborative filtering and
+                    content-based techniques.</p>
+                <a href="https://github.com/rishishankar-03/Movie_Reccommendation_System.git" target="_blank"
+                    class="project-link">View on GitHub <i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" data-aos="fade-left">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:rishishankar03@gmail.com">rishishankar03@gmail.com</a></p>
+        <p>Phone: +91 7992435670</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/rishishankar0306/" target="_blank">Rishi Shankar</a></p>
+        <p>GitHub: <a href="https://github.com/rishishankar-03" target="_blank">@rishishankar-03</a></p>
+
+        <form id="contactForm" action="https://formspree.io/f/mblonbvv" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Rishi Shankar</p>
+    </footer>
+
+    <a href="mailto:rishishankar03@gmail.com" class="floating-btn" title="Email Me"><i class="fas fa-envelope"></i></a>
+    <a href="#" class="scroll-top" id="scrollTopBtn" title="Back to Top"><i class="fas fa-arrow-up"></i></a>
+
+    <div id="toastNotification" class="toast-notification"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script>
+        AOS.init({
+            duration: 800, // global duration for AOS animations
+            once: true // animations only happen once
+        });
+
+        // Scroll-to-Top Button
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        // Typed.js Initialization
+        if (document.getElementById('typed-tagline')) {
+            var typed = new Typed('#typed-tagline', {
+                strings: ["B.Tech in ECE @ NIT Patna", "Aspiring Data Scientist", "AI/ML Enthusiast"],
+                typeSpeed: 50,
+                backSpeed: 25,
+                loop: true,
+                showCursor: true,
+                cursorChar: '|',
+                smartBackspace: true
+            });
+        }
+
+        // Contact Form Submission (using Formspree) with Toast Notification
+        const contactForm = document.getElementById('contactForm');
+        const toastNotification = document.getElementById('toastNotification');
+
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(contactForm);
+            const response = await fetch(contactForm.action, {
+                method: contactForm.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                showToast('Message sent successfully!', 'success');
+                contactForm.reset(); // Clear the form
+            } else {
+                showToast('Failed to send message. Please try again.', 'error');
+            }
+        });
+
+        function showToast(message, type) {
+            toastNotification.textContent = message;
+            toastNotification.className = 'toast-notification show'; // Reset class and add 'show'
+
+            // Optional: Add type-specific styling
+            if (type === 'success') {
+                toastNotification.style.backgroundColor = '#4CAF50'; // Green
+            } else if (type === 'error') {
+                toastNotification.style.backgroundColor = '#f44336'; // Red
+            }
+
+            setTimeout(() => {
+                toastNotification.className = toastNotification.className.replace('show', '');
+            }, 3000); // Hide after 3 seconds
+        }
+    </script>
+</body>
+
+</html>
