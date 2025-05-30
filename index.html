@@ -415,17 +415,23 @@
     .scroll-top {
       position: fixed;
       bottom: 2rem;
-      /* Use rem */
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border-radius: 50%;
-      font-size: 1.4rem;
-      /* Adjusted font size */
-      padding: 0.9rem;
-      /* Adjusted padding */
-      color: white;
-      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.3rem;
+      color: var(--accent-yellow);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-      /* Stronger shadow */
       z-index: 999;
+      opacity: 1 !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .floating-btn {
@@ -447,7 +453,7 @@
     .scroll-top {
       right: 6.5rem;
       /* Adjusted position */
-      background: var(--accent-blue);
+      background: var(--header-bg-start);
       opacity: 0;
       /* Start hidden */
       pointer-events: none;
@@ -457,7 +463,7 @@
     }
 
     .scroll-top i {
-      color: white;
+      color: var(--accent-yellow);
     }
 
     .scroll-top.show {
@@ -465,6 +471,11 @@
       /* Fully visible */
       pointer-events: all;
       /* Make it clickable when shown */
+    }
+
+    .scroll-top:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
     }
 
     /* Typed.js cursor styling */
@@ -1086,7 +1097,7 @@
     <p>&copy; 2025 Rishi Shankar</p>
   </footer>
 
-  <a href="mailto:rishishankar03@gmail.com" class="floating-btn" title="Email Me"><i class="fas fa-envelope"></i></a>
+  
   <a href="#" class="scroll-top" id="scrollTopBtn" title="Back to Top"><i class="fas fa-arrow-up"></i></a>
 
   <div id="toastNotification" class="toast-notification"></div>
