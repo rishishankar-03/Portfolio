@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rishi Shankar | Portfolio</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* CSS Variables for easier theming */
+    :root {
+      /* Light Mode Colors (these would be overridden by dark mode) */
+      --primary-bg: #f4f4f4;
+      --primary-text: #333;
+      --header-bg-start: #003366;
+      --header-bg-end: #00509e;
+      --nav-bg: #003366;
+      --nav-link: #fff;
+      --nav-link-hover: #00509e;
+      --accent-yellow: #ffee00;
+      --accent-blue: #00509e;
+      --heading-color: #00509e;
+      --card-bg: #fff;
+      --card-shadow: rgba(0, 0, 0, 0.1);
+      --skill-item-hover-bg: #e9eff5;
+      --skill-item-hover-text: #003366;
+      --skill-item-hover-border: #00509e;
+      --link-color: #00509e;
+      --form-border: #ccc;
+      --form-focus-border: #00509e;
+      --button-bg: #00509e;
+      --button-text: #fff;
+      --footer-bg: #003366;
+      --footer-text: #fff;
+      --whatsapp-green: #25d366;
+
+      /* Typography */
+      --font-body: 'Open Sans', sans-serif;
+      --font-heading: 'Poppins', sans-serif;
+    }
+
+    /* Dark Mode Overrides (These are the active colors now by default) */
+    body {
+      /* Apply dark mode styles directly to body as default */
+      --primary-bg: #1a1a2e;
+      /* Deeper, richer dark background */
+      --primary-text: #e0e0e0;
+      --header-bg-start: #0f3460;
+      /* Darker blue */
+      --header-bg-end: #16213e;
+      /* Even darker blue */
+      --nav-bg: #0f3460;
+      --nav-link: #a7d9ff;
+      /* Lighter, more vibrant blue for links */
+      --nav-link-hover: #16213e;
+      --accent-yellow: #ffeb3b;
+      /* Slightly softer yellow */
+      --accent-blue: #a7d9ff;
+      /* Consistent accent blue */
+      --heading-color: #a7d9ff;
+      --card-bg: #282a36;
+      /* Darker gray for cards */
+      --card-shadow: rgba(0, 0, 0, 0.5);
+      /* Stronger shadow */
+      --skill-item-hover-bg: #3f51b5;
+      /* A subtle indigo on hover */
+      --skill-item-hover-text: #fff;
+      /* White text on hover */
+      --skill-item-hover-border: #ffeb3b;
+      /* Yellow border on hover */
+      --link-color: #a7d9ff;
+      --form-border: #555;
+      --form-focus-border: #a7d9ff;
+      --button-bg: #ffeb3b;
+      --button-text: #1a1a2e;
+      /* Dark text on yellow button */
+      --footer-bg: #0f3460;
+      --footer-text: #e0e0e0;
+      --whatsapp-green: #2ecc71;
+      /* A vibrant green for dark mode */
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      line-height: 1.7;
+      /* Slightly more line height for readability */
+      color: var(--primary-text);
+      background-color: var(--primary-bg);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+    }
+
+    header {
+      background: linear-gradient(to right, var(--header-bg-start), var(--header-bg-end));
+      color: var(--nav-link);
+      padding: 2.5rem 1rem;
+      /* Use rem for scalability */
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .profile-img {
+      width: 120px;
+      /* Slightly larger image for impact */
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--accent-yellow);
+      /* Thicker border */
+      margin-bottom: 1rem;
+      /* More space below image */
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      /* Larger heading */
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: var(--nav-link);
+      /* Ensure tagline is visible against header background */
+    }
+
+    .resume-btn {
+      margin-top: 1.5rem;
+    }
+
+    .resume-btn a {
+      background: var(--accent-yellow);
+      color: var(--button-text);
+      /* Ensure button text is dark on yellow */
+      padding: 0.75rem 1.5rem;
+      /* More generous padding */
+      text-decoration: none;
+      border-radius: 8px;
+      /* Slightly more rounded */
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    }
+
+    .resume-btn a:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      background-color: #e0d100;
+      /* Darker yellow on hover */
+    }
+
+    /* --- Navigation --- */
+    nav {
+      background-color: var(--nav-bg);
+      padding: 0.8rem 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+      position: sticky;
+      /* Make it sticky */
+      top: 0;
+      z-index: 1000;
+      /* Ensure it stays on top */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 1rem;
+      /* Spaced out links */
+    }
+
+    nav ul li a {
+      color: var(--nav-link);
+      text-decoration: none;
+      padding: 0.6rem 1rem;
+      transition: background 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      /* For underline effect */
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--accent-yellow);
+      /* Yellow underline */
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    nav ul li a:hover {
+      color: var(--accent-yellow);
+      /* Yellow text on hover */
+    }
+
+    .hamburger {
+      display: none;
+      /* Hidden by default on desktop */
+      font-size: 1.8rem;
+      color: var(--nav-link);
+      cursor: pointer;
+      z-index: 1001;
+      /* Above nav links when open */
+    }
+
+    /* Mobile Nav Menu Styling */
+    nav.active .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      /* Position below the nav bar */
+      left: 0;
+      width: 100%;
+      background-color: var(--nav-bg);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      padding: 1rem 0;
+      max-height: 0;
+      /* Keep it initially hidden */
+      overflow: hidden;
+      /* Ensure content is hidden */
+      transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+      /* Add opacity transition */
+      opacity: 0;
+      /* Start opaque for transition */
+    }
+
+    nav.active .nav-links.show-menu {
+      max-height: 300px;
+      /* Adjust as needed to fit all links */
+      opacity: 1;
+      /* Fade in */
+    }
+
+    nav.active .nav-links li {
+      margin: 0.5rem 0;
+      text-align: center;
+    }
+
+
+    section {
+      padding: 4rem 1.5rem;
+      /* More consistent padding */
+      max-width: 1100px;
+      /* Slightly wider content area */
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 2.5rem;
+      /* More space below headings */
+      color: var(--heading-color);
+      font-size: 2.5rem;
+      /* Larger section headings */
+      text-align: center;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      width: 80px;
+      height: 4px;
+      background-color: var(--accent-yellow);
+      border-radius: 2px;
+    }
+
+
+    #about p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      /* Consistent spacing between paragraphs */
+      text-align: justify;
+    }
+
+    /* Experience Section Styling - Reuses project-card for consistency */
+    .experience-item {
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      padding: 1.8rem;
+      box-shadow: 0 6px 12px var(--card-shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-bottom: 2rem;
+      /* Space between experience items */
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .experience-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+      border-color: var(--accent-yellow);
+    }
+
+    .experience-item h3 {
+      color: var(--heading-color);
+      font-size: 1.6em;
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-item .role-company {
+      font-size: 1.1em;
+      font-weight: 600;
+      color: var(--primary-text);
+      margin-bottom: 0.3rem;
+    }
+
+    .experience-item .duration-location {
+      font-size: 0.95em;
+      color: #b0b0b0;
+      /* Lighter grey for duration/location */
+      margin-bottom: 1rem;
+    }
+
+    .experience-item ul {
+      list-style: disc;
+      /* Use disc for bullet points */
+      margin-left: 1.5rem;
+      font-size: 1em;
+      color: var(--primary-text);
+    }
+
+    .experience-item ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .experience-item {
+      position: relative;
+      border-left: 4px solid transparent;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s, color 0.3s;
+    }
+
+    .experience-item:hover {
+      transform: translateX(8px);
+      background-color: var(--skill-item-hover-bg);
+      color: var(--skill-item-hover-text);
+      border-left: 4px solid var(--skill-item-hover-border);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+
+
+    /* End Experience Section Styling */
+
+
+    ul {
+      list-style: none;
+      /* Remove default list style */
+      padding-left: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      background-color: var(--footer-bg);
+      color: var(--footer-text);
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--accent-yellow);
+      /* Consistent hover color */
+    }
+
+    /* Floating Buttons */
+    .floating-btn,
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.3rem;
+      color: var(--accent-yellow);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      z-index: 999;
+      opacity: 1 !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .floating-btn {
+      right: 2rem;
+      background: var(--whatsapp-green);
+    }
+
+    .floating-btn i {
+      color: white;
+    }
+
+    .floating-btn:hover,
+    .scroll-top:hover {
+      transform: translateY(-5px) scale(1.08);
+      /* More pronounced hover */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .scroll-top {
+      right: 6.5rem;
+      /* Adjusted position */
+      background: var(--header-bg-start);
+      opacity: 0;
+      /* Start hidden */
+      pointer-events: none;
+      /* Make it unclickable when hidden */
+      transition: opacity 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      /* Add opacity to transition */
+    }
+
+    .scroll-top i {
+      color: var(--accent-yellow);
+    }
+
+    .scroll-top.show {
+      opacity: 1;
+      /* Fully visible */
+      pointer-events: all;
+      /* Make it clickable when shown */
+    }
+
+    .scroll-top:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Typed.js cursor styling */
+    .typed-cursor {
+      opacity: 1;
+      animation: typedjsBlink 0.7s infinite;
+      color: var(--accent-yellow);
+      /* Make cursor more prominent */
+    }
+
+    @keyframes typedjsBlink {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Project Cards Styling */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      /* Larger min width */
+      gap: 1.5rem;
+      /* More gap */
+      padding-top: 1.5rem;
+    }
+
+    .project-card {
+      background-color: var(--card-bg);
+      border-radius: 10px;
+      /* More rounded corners */
+      padding: 1.8rem;
+      /* More padding */
+      box-shadow: 0 6px 12px var(--card-shadow);
+      /* Stronger shadow */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      /* Subtle border */
+    }
+
+    .project-card h3 {
+      color: var(--heading-color);
+      margin-bottom: 0.8rem;
+      font-size: 1.5em;
+      /* Slightly larger project title */
+    }
+
+    .project-card .project-description {
+      font-size: 1em;
+      margin-bottom: 1.2rem;
+      flex-grow: 1;
+      color: var(--primary-text);
+    }
+
+    .project-card .project-link {
+      display: inline-flex;
+      /* Use flex for icon alignment */
+      align-items: center;
+      justify-content: center;
+      background-color: var(--button-bg);
+      color: var(--button-text) !important;
+      padding: 0.8rem 1.2rem;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1em;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      margin-top: auto;
+      /* Push to bottom of card */
+    }
+
+    .project-card .project-link i {
+      margin-left: 0.5rem;
+      /* Space between text and icon */
+      font-size: 1.1em;
+    }
+
+    .project-card .project-link:hover {
+      background-color: #e0d100;
+      /* Darker yellow */
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-card:hover {
+      transform: translateX(8px);
+      background-color: var(--skill-item-hover-bg);
+      color: var(--skill-item-hover-text);
+      border-left: 4px solid var(--skill-item-hover-border);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+
+    /* Skills Section Hover Effects */
+    #skills ul {
+      list-style: none;
+      padding-left: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      /* Slightly larger min width */
+      gap: 1rem;
+      /* Consistent gap */
+    }
+
+    #skills ul li {
+      padding: 1.2rem 1.5rem;
+      /* More padding */
+      border-radius: 6px;
+      /* Consistent rounded corners */
+      transition: transform 0.2s ease-in-out, background-color 0.3s ease, color 0.3s ease, border-left 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      border-left: 4px solid transparent;
+      /* Thicker border */
+      background-color: var(--card-bg);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      /* Stronger initial shadow */
+      font-size: 1.05em;
+      /* Slightly larger text */
+    }
+
+    #skills ul li:hover {
+      transform: translateX(8px);
+      /* More pronounced slide */
+      background-color: var(--skill-item-hover-bg);
+      color: var(--skill-item-hover-text);
+      border-left: 4px solid var(--skill-item-hover-border);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      /* Stronger hover shadow */
+    }
+
+    .experience-item:hover ul li,
+    .project-card:hover .project-description,
+    .certificate-item:hover p,
+    .certificate-item:hover h3 {
+      color: var(--skill-item-hover-text);
+    }
+
+
+    /* Contact Form Styling */
+    #contact form {
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px var(--card-shadow);
+      margin-top: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      /* Subtle border */
+    }
+
+    #contact label {
+      display: block;
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+      color: var(--primary-text);
+      font-size: 1em;
+    }
+
+    #contact input[type="text"],
+    #contact input[type="email"],
+    #contact textarea {
+      width: 100%;
+      padding: 0.9rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid var(--form-border);
+      border-radius: 6px;
+      background-color: var(--primary-bg);
+      /* Use primary bg for inputs */
+      color: var(--primary-text);
+      font-size: 1em;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #contact input[type="text"]:focus,
+    #contact input[type="email"]:focus,
+    #contact textarea:focus {
+      border-color: var(--form-focus-border);
+      box-shadow: 0 0 0 3px rgba(167, 217, 255, 0.3);
+      /* Lighter blue shadow for dark mode */
+      outline: none;
+    }
+
+    #contact button[type="submit"] {
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      border: none;
+      padding: 0.8rem 2rem;
+      cursor: pointer;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      display: block;
+      /* Make button full width on small screens */
+      width: 100%;
+      max-width: 250px;
+      /* Limit width on larger screens */
+      margin: 0 auto;
+      /* Center the button */
+    }
+
+    #contact button[type="submit"]:hover {
+      background-color: #e0d100;
+      /* Darker yellow */
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Toast Notification */
+    .toast-notification {
+      visibility: hidden;
+      min-width: 280px;
+      /* Wider toast */
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 8px;
+      /* More rounded */
+      padding: 18px;
+      /* More padding */
+      position: fixed;
+      z-index: 10000;
+      /* Higher z-index */
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 30px;
+      font-size: 1em;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out, visibility 0.5s;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .toast-notification.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* --- Certificates Section Styling --- */
+    .certificates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      /* Slightly wider min width */
+      gap: 2rem;
+      /* Increased gap for better spacing */
+      padding-top: 2rem;
+    }
+
+    .certificate-item {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      /* More rounded corners */
+      padding: 1.5rem;
+      box-shadow: 0 8px 16px var(--card-shadow);
+      /* More pronounced shadow */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      /* Slightly stronger subtle border */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* Center content horizontally */
+      justify-content: flex-start;
+      /* Align items to the top initially */
+    }
+
+    .certificate-item:hover {
+      transform: translateX(8px);
+      background-color: var(--skill-item-hover-bg);
+      color: var(--skill-item-hover-text);
+      border-left: 4px solid var(--skill-item-hover-border);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+
+    .certificate-item a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      width: 100%;
+      /* Make the entire card clickable */
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .certificate-item img {
+      max-width: 80%;
+      /* Slightly smaller image for more balanced layout */
+      height: auto;
+      border-radius: 10px;
+      /* More rounded image corners */
+      margin-bottom: 1rem;
+      object-fit: contain;
+      /* Ensure full image is visible without cropping */
+      border: 2px solid var(--form-border);
+      transition: border-color 0.3s ease;
+    }
+
+    .certificate-item:hover img {
+      border-color: var(--accent-yellow);
+    }
+
+    .certificate-item h3 {
+      color: var(--heading-color);
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .certificate-item p {
+      font-size: 0.95rem;
+      color: #b0b0b0;
+      margin-bottom: 0;
+      /* Adjust spacing */
+    }
+
+    /* Responsive adjustments for certificates */
+    @media (max-width: 768px) {
+      .certificates-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .certificate-item img {
+        max-width: 90%;
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header {
+        padding: 2rem 1rem;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      /* Mobile Navigation */
+      nav {
+        justify-content: space-between;
+        /* Hamburger on one side, maybe logo on other */
+      }
+
+      nav ul {
+        display: none;
+        /* Hide desktop nav */
+      }
+
+      .hamburger {
+        display: block;
+        /* Show hamburger icon */
+      }
+
+      section {
+        padding: 3rem 1rem;
+        /* Adjust section padding */
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+        /* Single column on smaller screens */
+      }
+
+      #skills ul {
+        grid-template-columns: 1fr;
+        /* Single column on smaller screens */
+      }
+
+      .floating-btn {
+        font-size: 1.2rem;
+        padding: 0.8rem;
+        bottom: 1.5rem;
+        right: 1.5rem;
+      }
+
+      .scroll-top {
+        font-size: 1.2rem;
+        padding: 0.8rem;
+        bottom: 1.5rem;
+        right: 5rem;
+        /* Adjust if floating button overlaps */
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .profile-img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .resume-btn a {
+        padding: 0.6rem 1.2rem;
+        font-size: 1em;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      #about p {
+        font-size: 0.95em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="images/profile.jpg" alt="Profile Picture" class="profile-img" />
+    <h1>Rishi Shankar</h1>
+    <p><span id="typed-tagline"></span></p>
+    <div class="resume-btn">
+      <a href="resume.pdf" download>Download Resume</a>
+    </div>
+  </header>
+
+  <nav>
+    <div class="hamburger" id="hamburger">
+      <i class="fas fa-bars"></i>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>
+      I had done my Engineering degree in Electronics and Communication Engineering from NIT Patna.
+      Throughout my academic journey, I have developed a strong foundation in core ECE subjects such as digital
+      electronics, analog electronics, wireless communication, microwave engineering IoT and MATLAB. Alongside, I
+      have cultivated a deep passion for Artificial
+      Intelligence and have successfully completed numerous AI projects using frameworks and tools like
+      TensorFlow, Scikit-learn, and YOLO.
+    </p>
+    <p>
+      My skill set bridges traditional electronics and cutting-edge AI technologies, allowing me to approach
+      problems with a unique perspective. I am highly motivated to build a career in the AI domain and
+      continuously seek opportunities to expand my knowledge and contribute to innovative projects in this
+      exciting field.
+    </p>
+  </section>
+
+  <section id="experience" data-aos="fade-up">
+    <h2>Experience</h2>
+    <div class="experience-grid">
+      <div class="experience-item" data-aos="fade-up" data-aos-delay="50">
+        <h3 class="role-company">DATA SCIENCE INTERN | Brain O Vision Solutions India Pvt Ltd.</h3>
+        <p class="duration-location">Hyderabad | Jan 2025 - Present</p>
+        <ul>
+          <li>Developed a CNN-based image classification model to identify potato leaf diseases. Handled data
+            preprocessing, augmentation, and model training to achieve high prediction accuracy.</li>
+          <li>Tools: Python, FastAPI, TensorFlow, and Keras.</li>
+        </ul>
+      </div>
+      <div class="experience-item" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="role-company">SUMMER INTERN | PreGrad</h3>
+        <p class="duration-location">Remote | Jun 2023 - Sept 2023</p>
+        <ul>
+          <li>Learned core AI/ML concepts over a three-month program. Built a movie recommendation system using a
+            5,000-entry dataset with content-based filtering and similarity measures.</li>
+          <li>Tools: Python, Pandas, Numpy, Matplotlib, Scikit-learn.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  </section>
+  <section id="skills" data-aos="fade-right">
+    <h2>Skills</h2>
+    <ul>
+      <li data-aos="fade-up" data-aos-delay="50">Languages: C++, Python, C, Java, HTML, CSS</li>
+      <li data-aos="fade-up" data-aos-delay="100">Developer Tools: VS code, Anaconda, Kaggle, GitHub, IntelliJ, Google
+        Colaboratory, Git</li>
+      <li data-aos="fade-up" data-aos-delay="150">Frameworks: Speech Recognition, Scikit-Learn, Mlib, TensorFlow,
+        Pandas, Numpy, OpenCV</li>
+      <li data-aos="fade-up" data-aos-delay="200">Cloud/Databases: MySQL, Amazon Web Services</li>
+      <li data-aos="fade-up" data-aos-delay="250">Soft Skills: Communication, Leadership, Problem-Solving, Teamwork,
+        Time Management, Strategic Thinking</li>
+      <li data-aos="fade-up" data-aos-delay="300">Coursework: DSA, OOP, OS, DBMS, Computer Networks, MATLAB, Machine
+        Learning, Digital Signal and Processing, Digital Electronics, AI</li>
+      <li data-aos="fade-up" data-aos-delay="350">Areas of Interest: Machine Learning Algorithms, Artificial
+        Intelligence Data Science, Data Structures and Algorithms</li>
+    </ul>
+  </section>
+
+  <section id="projects" data-aos="zoom-in">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card" data-aos="fade-up">
+        <h3>Potato Disease Classification</h3>
+        <p class="project-description">A CNN model using TensorFlow to classify diseases in potato plant leaves
+          from images.</p>
+        <a href="https://github.com/rishishankar-03/Potato_Disease_Classiffication_using_CNN_and_Tensorflow.git"
+          target="_blank" class="project-link">View on GitHub <i class="fab fa-github"></i></a>
+      </div>
+      <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+        <h3>AI Resume Analyzer</h3>
+        <p class="project-description">An NLP-based tool to parse resumes, extract key information, and help in
+          screening processes.</p>
+        <a href="https://github.com/rishishankar-03/AI_Resume_Analyzer.git" target="_blank" class="project-link">View on
+          GitHub <i class="fab fa-github"></i></a>
+      </div>
+      <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+        <h3>JARVIS – Virtual Assistant</h3>
+        <p class="project-description">A Python-based virtual desktop assistant capable of performing various
+          automated tasks.</p>
+        <a href="https://github.com/rishishankar-03/JARVIS_Virtual_AI_Desktop_Assisstant.git" target="_blank"
+          class="project-link">View on GitHub <i class="fab fa-github"></i></a>
+      </div>
+      <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+        <h3>Breast Cancer Detection</h3>
+        <p class="project-description">Machine learning model to predict breast cancer occurrence based on
+          diagnostic measurements.</p>
+        <a href="https://github.com/rishishankar-03/Breast_Cancer_Detection.git" target="_blank"
+          class="project-link">View on GitHub <i class="fab fa-github"></i></a>
+      </div>
+      <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+        <h3>Movie Recommendation System</h3>
+        <p class="project-description">A system suggesting movies to users based on collaborative filtering and
+          content-based techniques.</p>
+        <a href="https://github.com/rishishankar-03/Movie_Reccommendation_System.git" target="_blank"
+          class="project-link">View on GitHub <i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </section>
+  <section id="certificates" data-aos="fade-up">
+    <h2>Certificates</h2>
+    <div class="certificates-grid">
+      <div class="certificate-item" data-aos="fade-up" data-aos-delay="50">
+        <a href="images/1.jpeg" target="_blank" title="View Course Completion Certificate">
+          <img src="images/1.jpeg" alt="Internship Completion Certificate" loading="lazy">
+          <h3>Course Completion</h3>
+          <p>Issued by PreGrad</p>
+        </a>
+      </div>
+      <div class="certificate-item" data-aos="fade-up" data-aos-delay="100">
+        <a href="images/2.jpeg" target="_blank" title="View Project Completion Certificate">
+          <img src="images/2.jpeg" alt="Project Completion Certificate" loading="lazy">
+          <h3>Project Completion</h3>
+          <p>Issued by PreGrad</p>
+        </a>
+      </div>
+      <div class="certificate-item" data-aos="fade-up" data-aos-delay="150">
+        <a href="images/3.jpg" target="_blank" title="View NPTEL Python Certificate">
+          <img src="images/3.jpg" alt="NPTEL Python Programming Certificate" loading="lazy">
+          <h3>NPTEL: The Joy of Computing using Python</h3>
+          <p>Issued by NPTEL</p>
+        </a>
+      </div>
+      <div class="certificate-item" data-aos="fade-up" data-aos-delay="200">
+        <a href="images/4.jpg" target="_blank" title="View NPTEL Cloud Computing Certificate">
+          <img src="images/4.jpg" alt="NPTEL Cloud Computing Certificate" loading="lazy">
+          <h3>NPTEL: Cloud Computing</h3>
+          <p>Issued by NPTEL</p>
+        </a>
+      </div>
+      <div class="certificate-item" data-aos="fade-up" data-aos-delay="250">
+        <a href="images/5.jpg" target="_blank" title="View NPTEL IoT Certificate">
+          <img src="images/5.jpg" alt="NPTEL Internet of Things (IoT) Certificate" loading="lazy">
+          <h3>NPTEL: Internet of Things (IoT)</h3>
+          <p>Issued by NPTEL</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" data-aos="fade-left">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:rishishankar03@gmail.com">rishishankar03@gmail.com</a></p>
+    <p>Phone: +91 7992435670</p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/rishishankar0306/" target="_blank">Rishi Shankar</a></p>
+    <p>GitHub: <a href="https://github.com/rishishankar-03" target="_blank">@rishishankar-03</a></p>
+
+    <form id="contactForm" action="https://formspree.io/f/mblonbvv" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Rishi Shankar</p>
+  </footer>
+
+  
+  <a href="#" class="scroll-top" id="scrollTopBtn" title="Back to Top"><i class="fas fa-arrow-up"></i></a>
+
+  <div id="toastNotification" class="toast-notification"></div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+  <script>
+    AOS.init({
+      duration: 800, // global duration for AOS animations
+      once: false, // animations only happen once
+      mirror: true,
+      anchorPlacement: 'bottom-top'
+    });
+
+    // Scroll-to-Top Button
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('show');
+      } else {
+        scrollTopBtn.classList.remove('show');
+      }
+    });
+
+    // Typed.js Initialization
+    if (document.getElementById('typed-tagline')) {
+      var typed = new Typed('#typed-tagline', {
+        strings: ["B.Tech in ECE @ NIT Patna", "Aspiring Data Scientist", "AI/ML Enthusiast"],
+        typeSpeed: 50,
+        backSpeed: 25,
+        loop: true,
+        showCursor: true,
+        cursorChar: '|',
+        smartBackspace: true
+      });
+    }
+
+    // Contact Form Submission (using Formspree) with Toast Notification
+    const contactForm = document.getElementById('contactForm');
+    const toastNotification = document.getElementById('toastNotification');
+
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault(); // Prevent default form submission
+
+      const formData = new FormData(contactForm);
+      const response = await fetch(contactForm.action, {
+        method: contactForm.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        showToast('Message sent successfully!');
+        contactForm.reset(); // Clear the form
+      } else {
+        showToast('Failed to send message. Please try again.');
+      }
+    });
+
+    function showToast(message) {
+      toastNotification.textContent = message;
+      toastNotification.classList.add('show');
+      setTimeout(() => {
+        toastNotification.classList.remove('show');
+      }, 3000); // Hide after 3 seconds
+    }
+
+    // Smooth Scroll for Navigation Links
+    document.querySelectorAll('nav .nav-links a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default hash jump
+
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          // Close mobile menu if open
+          const nav = document.querySelector('nav');
+          const navLinks = document.getElementById('navLinks');
+          if (nav.classList.contains('active')) {
+            nav.classList.remove('active');
+            navLinks.classList.remove('show-menu');
+          }
+
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Hamburger Menu Toggle (Mobile Nav)
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    const nav = document.querySelector('nav'); // Get the nav element itself
+
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active'); // Toggle 'active' class on the nav element
+      navLinks.classList.toggle('show-menu'); // Toggle 'show-menu' for animation
+    });
+
+    // Close mobile menu when a link is clicked
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+        navLinks.classList.remove('show-menu');
+      });
+    });
+  </script>
+</body>
+
+</html>
