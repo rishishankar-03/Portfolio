@@ -1,4 +1,3 @@
-cat > README.md << 'EOF'
 # 💼 Rishi Shankar's Portfolio Website
 
 Welcome to the source code of my personal portfolio website — a showcase of my projects, skills, and achievements. This site is built using HTML, CSS, and JavaScript, and is hosted on **GitHub Pages**.
